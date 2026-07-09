@@ -1,0 +1,18 @@
+# Prevent directory listing
+Options -Indexes
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Protect environment file
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Allow access to all PHP files
+# No restrictions needed

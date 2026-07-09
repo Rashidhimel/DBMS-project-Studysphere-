@@ -1,0 +1,10 @@
+Options -Indexes
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+RedirectMatch 403 ^/app/.*$
+RedirectMatch 403 ^/storage/.*$
+RewriteEngine On
+RewriteRule ^$ public/ [L]
+RewriteRule (.*) public/$1 [L]
